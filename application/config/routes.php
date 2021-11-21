@@ -50,6 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'streaming';
-$route['managesite'] = 'auth';
+$route['home'] = 'auth'; 
+// $route['managesite/(:any)'] = 'auth/$1';
+// $route['managesite/(:any)/(:any)'] = 'auth/$1/$2';
+// $route['managesite/(:any)/(:any)/(:any)'] = 'auth/$1/$2/$3';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

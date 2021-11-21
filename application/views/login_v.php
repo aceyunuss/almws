@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="assets/css/shared/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="stylesheet" href="assets/js/sweetalert/dist/sweetalert2.min.css">
 </head>
 
 <body>
@@ -28,11 +29,11 @@
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper">
-              <form action="#">
+              <form method="POST" action="<?= site_url('auth/login') ?>">
                 <div class="form-group">
                   <label class="label">Username</label>
                   <div class="input-group">
-                    <input type="text" class="username form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control" placeholder="Username">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -43,7 +44,7 @@
                 <div class="form-group">
                   <label class="label">Password</label>
                   <div class="input-group">
-                    <input type="password" class="password form-control" placeholder="*********">
+                    <input type="password" name="password" class="form-control" placeholder="*********">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -52,7 +53,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary submit-btn btn-block go-login">Login</button>
+                  <input value="Login" type="submit" class="btn btn-primary submit-btn btn-block go-login">
                 </div>
                 <div class="form-group d-flex justify-content-between">
                   &nbsp;
@@ -83,6 +84,8 @@
   <!-- plugins:js -->
   <script src="assets/vendors/js/vendor.bundle.base.js"></script>
   <script src="assets/vendors/js/vendor.bundle.addons.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/sweetalert/dist/sweetalert2.all.min.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
   <script src="assets/js/shared/off-canvas.js"></script>
@@ -92,30 +95,3 @@
 </body>
 
 </html>
-
-<script>
-  $(document).ready(function() {
-
-    $('.go-login').click(function() {
-      check = isComplete();
-      if(check){
-        
-        
-      }
-    })
-
-
-    function isComplete() {
-      let re = true;
-      let un = $('.username').val();
-      let pw = $('.password').val();
-
-      if (!un || !pw) {
-        re = false;
-      }
-
-      return re;
-    }
-
-  });
-</script>

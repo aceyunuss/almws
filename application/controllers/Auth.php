@@ -10,23 +10,48 @@ class Auth extends Core_Controller
 
   public function index()
   {
-    if (!is_null($this->session->userdata('user'))) {
-      redirect('managesite/dashboard');
+    if (!is_null($this->session->userdata('user_ses'))) {
+      $this->template('dashboard_v', 'Dashboard', []);
     } else {
-      $this->login();
+      $this->load->view("login_v");
     }
-  }
-
-
-  public function login()
-  {
-    $this->load->view("login_v");
   }
 
 
   public function logout()
   {
-    $this->sesion->sess_destroy();
-    redirect('managesite/login');
+    $this->session->sess_destroy('user_ses');
+    redirect('auth');
+  }
+
+
+  public function login()
+  {
+    $un = $this->security->xss_clean($this->input->post('username'));
+    $pw = $this->security->xss_clean($this->input->post('password'));
+
+    if (!empty($un) && !empty($pw)) {
+
+      $this->load->model('User_m');
+
+      $log = $this->User_m->checkLogin($un, $pw);
+
+      if (!empty($log)) {
+
+        $data_session = [
+          'user_id' => $log['user_id'],
+          'name'    => $log['fullname'],
+          'role'    => $log['role']
+        ];
+        $this->session->set_userdata('user_ses', $data_session);
+
+        redirect(site_url('home'));
+      } else {
+        $this->setMessage("User tidak ditemukan");
+      }
+    } else {
+      $this->setMessage("Harap lengkapi username dan passwor");
+    }
+    redirect(site_url('home'));
   }
 }

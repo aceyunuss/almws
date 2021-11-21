@@ -1,4 +1,7 @@
 <body>
+
+<input type="hidden" id="<?= sha1('apikey') ?>" value="<?= sha1(APIKEY) ?>">
+
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
