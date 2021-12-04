@@ -96,15 +96,15 @@ class Settings extends Core_Controller
     if (!empty($post)) {
 
       $bg_id = explode(",", $post['bg_id']);
-      $to = $post['status'] == 1 ? 0 : 1;
+      // $to = $post['status'] == 1 ? 0 : 1;
 
       $this->db->trans_begin();
 
       $this->db->where_in('bg_id', $bg_id);
       $this->Settings_m->updateBg("", ['is_active' => $post['status']]);
 
-      $this->db->where_not_in('bg_id', $bg_id);
-      $this->Settings_m->updateBg("", ['is_active' => $to]);
+      // $this->db->where_not_in('bg_id', $bg_id);
+      // $this->Settings_m->updateBg("", ['is_active' => $to]);
 
       if ($this->db->trans_status() !== FALSE) {
         $this->db->trans_commit();
