@@ -1,4 +1,3 @@
-
 <!-- partial -->
 <div class="container-fluid page-body-wrapper">
   <!-- partial:partials/_sidebar.html -->
@@ -18,26 +17,26 @@
       </li>
       <li class="nav-item nav-category">Main Menu</li>
       <li class="nav-item">
-        <a class="nav-link" href="/managesite/">
+        <a class="nav-link" href="<?= site_url('home') ?>">
           <i class="menu-icon typcn typcn-document-text"></i>
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/managesite/users">
+        <a class="nav-link" href="<?= site_url('users') ?>">
           <i class="menu-icon typcn typcn-th-large-outline"></i>
           <span class="menu-title">Users</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/managesite/schedule">
+        <a class="nav-link" href="<?= site_url('schedule') ?>">
           <i class="menu-icon typcn typcn-shopping-bag"></i>
           <span class="menu-title">Schedule</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/managesite/settings">
-          <i class="menu-icon typcn typcn-shopping-bag"></i>
+        <a class="nav-link" href="<?= site_url('settings') ?>">
+          <i class=" menu-icon typcn typcn-shopping-bag"></i>
           <span class="menu-title">Settings</span>
         </a>
       </li>

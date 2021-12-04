@@ -1,22 +1,30 @@
 
-function goPost(url, body, alert) {
+function goPost(url, body, rel) {
 
   request = $.ajax({
     url: url,
     type: "post",
-    data: body
+    data: body,
+    processData: false, // important
+    contentType: false, // important
   });
 
   // Callback handler that will be called on success
   request.done(function (response, textStatus, jqXHR) {
     // Log a message to the console
     Swal.fire({
-      position: 'top-end',
+      // position: 'top-end',
       icon: 'success',
-      title: 'Your work has been saved',
+      title: 'Transaction succes!',
       showConfirmButton: false,
-      timer: 1500
-    })
+      timer: 2000
+    }).then(function () {
+      if (rel) {
+        location.reload();
+      }
+    }
+    );
+
   });
 
   // Callback handler that will be called on failure
@@ -29,10 +37,10 @@ function goPost(url, body, alert) {
 
     Swal.fire({
       title: 'Error!',
-      text: 'Do you want to continue',
+      text: 'Transaction failed!',
       icon: 'error',
-      confirmButtonText: 'Ok',
-      confirmButtonColor: '#19d895',
+      // confirmButtonText: 'Ok',
+      // confirmButtonColor: '#19d895',
     })
   });
 

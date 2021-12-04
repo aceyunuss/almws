@@ -32,9 +32,9 @@ class Auth extends Core_Controller
 
     if (!empty($un) && !empty($pw)) {
 
-      $this->load->model('User_m');
+      $this->load->model('Users_m');
 
-      $log = $this->User_m->checkLogin($un, $pw);
+      $log = $this->Users_m->checkLogin($un, $pw);
 
       if (!empty($log)) {
 
