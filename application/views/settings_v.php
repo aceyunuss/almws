@@ -252,12 +252,15 @@
 
       $('.del-bg').click(function() {
 
-        let bg_id = $(this).data('bg');
-        let endpoint = "<?= site_url('settings/delete_background') ?>";
-        let post_data = new FormData()
+        if (confirm("Are you sure delete this image?")) {
+          let bg_id = $(this).data('bg');
+          let endpoint = "<?= site_url('settings/delete_background') ?>";
+          let post_data = new FormData()
 
-        post_data.append('bg_id', bg_id)
-        goPost(endpoint, post_data, true);
+          post_data.append('bg_id', bg_id)
+
+          goPost(endpoint, post_data, true);
+        }
 
       })
 
