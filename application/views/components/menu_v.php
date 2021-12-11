@@ -16,25 +16,25 @@
         </a>
       </li>
       <li class="nav-item nav-category">Main Menu</li>
-      <li class="nav-item">
+      <li class="nav-item menu-home">
         <a class="nav-link" href="<?= site_url('home') ?>">
           <i class="menu-icon typcn typcn-document-text"></i>
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item menu-users">
         <a class="nav-link" href="<?= site_url('users') ?>">
           <i class="menu-icon typcn typcn-th-large-outline"></i>
           <span class="menu-title">Users</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item menu-schedule">
         <a class="nav-link" href="<?= site_url('schedule') ?>">
           <i class="menu-icon typcn typcn-shopping-bag"></i>
           <span class="menu-title">Schedule</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item menu-settings">
         <a class="nav-link" href="<?= site_url('settings') ?>">
           <i class=" menu-icon typcn typcn-shopping-bag"></i>
           <span class="menu-title">Settings</span>
@@ -62,3 +62,10 @@
       </li> -->
     </ul>
   </nav>
+
+  <script>
+    var sel_menu = "<?= $sel_menu ?>";
+    $(".menu-" + sel_menu).css({
+      "background-color": "#293846"
+    });
+  </script>

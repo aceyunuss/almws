@@ -13,7 +13,7 @@ class Core_Controller extends CI_Controller
 
     $dita['content'] = $view;
     $dita['site_title'] = "Manage Site Almuwasholah - " . $title;
-
+    $dita['sel_menu'] = $this->uri->segment(1);
     $pass = array_merge($dita, $data);
 
     $this->load->view('template_v', $pass);
